@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chameleon</title>
+
+		<script>
+			function setBgColor(max) 
+			{
+				var body = document.getElementsByTagName("body");
+				body = body[0];
+
+				var r = 255;
+				var g = 255;
+				var b = 255;
+
+				var r2 = 255;
+				var g2 = 200;
+				var b2 = 0;
+
+				var startDate = new Date();
+				startDate.setFullYear(2023, 1, 1);
+
+				var currentDate = new Date();
+				var ms = currentDate.getTime() - startDate.getTime();
+				var days = Math.floor(ms / 86400000);
+
+
+				if (days < max) 
+				{
+					var ratio = days / max;
+
+					var rDiff = r2 - r;
+					var gDiff = g2 - g;
+					var bDiff = b2 - b;
+
+					if (rDiff != 0)
+					{
+						r2 = r + (Math.floor(rDiff * ratio));
+					}
+
+					if (gDiff != 0)
+					{
+						g2 = g + (Math.floor(gDiff * ratio));
+					}
+
+					if (bDiff != 0)
+					{
+						b2 = b + (Math.floor(bDiff * ratio));
+					}
+				}
+console.log(r2,b2,g2,ratio)
+				body.style.backgroundColor = "rgb(" + r2 + ", " + g2 + ", " + b2 + ")";
+			}
+		</script>
+	</head>
+
+	<body onload="setBgColor(365)">
+		xyz123
+	</body>
+</html>
