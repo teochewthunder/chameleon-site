@@ -4,18 +4,10 @@
 		<title>Chameleon</title>
 
 		<script>
-			function setBgColor(max) 
+			function setBgColor(maxDays, fromColor, toColor) 
 			{
 				var body = document.getElementsByTagName("body");
 				body = body[0];
-
-				var r = 255;
-				var g = 255;
-				var b = 255;
-
-				var r2 = 255;
-				var g2 = 200;
-				var b2 = 0;
 
 				var startDate = new Date();
 				startDate.setFullYear(2023, 1, 1);
@@ -25,36 +17,46 @@
 				var days = Math.floor(ms / 86400000);
 
 
-				if (days < max) 
+				if (days < maxDays) 
 				{
-					var ratio = days / max;
+					var ratio = days / maxDays;
 
-					var rDiff = r2 - r;
-					var gDiff = g2 - g;
-					var bDiff = b2 - b;
+					var rDiff = toColor.r - fromColor.r;
+					var gDiff = toColor.g - fromColor.g;
+					var bDiff = toColor.b - fromColor.b;
 
-					if (rDiff != 0)
-					{
-						r2 = r + (Math.floor(rDiff * ratio));
-					}
+					var finalColor = toColor;
 
-					if (gDiff != 0)
-					{
-						g2 = g + (Math.floor(gDiff * ratio));
-					}
-
-					if (bDiff != 0)
-					{
-						b2 = b + (Math.floor(bDiff * ratio));
-					}
+					if (rDiff != 0) finalColor.r = fromColor.r + (Math.floor(rDiff * ratio));
+					if (gDiff != 0) finalColor.g = fromColor.g + (Math.floor(gDiff * ratio));
+					if (bDiff != 0) finalColor.b = fromColor.b + (Math.floor(bDiff * ratio));
 				}
-console.log(r2,b2,g2,ratio)
-				body.style.backgroundColor = "rgb(" + r2 + ", " + g2 + ", " + b2 + ")";
+
+				body.style.backgroundColor = "rgb(" + finalColor.r + ", " + finalColor.g + ", " + finalColor.b + ")";
 			}
 		</script>
 	</head>
 
-	<body onload="setBgColor(365)">
-		xyz123
+	<body onload="setBgColor(365, {r:255, g:255, b:255}, {r:255, g:200, b:0})">
+		<p>
+			Welcome to ColorShift! We are passionate about the power of colors to transform and enhance your world. Whether you're looking to revamp your home decor, design a striking logo, or simply add a touch of vibrancy to your digital creations, we have you covered. Our expert team is dedicated to helping you explore the endless possibilities of color.
+		</p>
+
+		<p>
+			Discover a kaleidoscope of hues, shades, and tones that will ignite your creativity. Dive into our extensive color palette and find the perfect combination that speaks to your unique style. From bold and energetic to calm and soothing, we offer a vast spectrum of options to suit any mood or aesthetic.
+		</p>
+
+		<p>
+			Our intuitive color selection tool allows you to experiment with different combinations, ensuring you find the harmony you're seeking. Adjust brightness, saturation, and contrast to achieve just the right balance. Create stunning gradients or play with complementary and contrasting colors to make your designs truly stand out.
+		</p>
+
+		<p>
+			Whether you're a seasoned designer or a novice enthusiast, our blog is a treasure trove of inspiration and guidance. Dive into articles that delve into the psychology of color, explore the latest trends, and learn invaluable tips and tricks to make your colors pop.
+		</p>
+
+		<p>
+			At ColorShift, we understand that colors have the power to evoke emotions, convey messages, and make a lasting impression. Let us be your guide on this chromatic journey. Unleash your imagination, unleash the colors!
+		</p>
 	</body>
 </html>
+
