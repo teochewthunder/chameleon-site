@@ -16,6 +16,7 @@
 				var ms = currentDate.getTime() - startDate.getTime();
 				var days = Math.floor(ms / 86400000);
 
+				var finalColor = toColor;
 
 				if (days < maxDays) 
 				{
@@ -23,9 +24,7 @@
 
 					var rDiff = toColor.r - fromColor.r;
 					var gDiff = toColor.g - fromColor.g;
-					var bDiff = toColor.b - fromColor.b;
-
-					var finalColor = toColor;
+					var bDiff = toColor.b - fromColor.b;	
 
 					if (rDiff != 0) finalColor.r = fromColor.r + (Math.floor(rDiff * ratio));
 					if (gDiff != 0) finalColor.g = fromColor.g + (Math.floor(gDiff * ratio));
