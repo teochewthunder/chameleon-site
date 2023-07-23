@@ -1,5 +1,5 @@
 # Chameleon Site
-This is a very simple script to change the site's background color from `fromColor` to `toColor` over a period of `maxDays`. The default starting date is 1 Jan 2023.
+This is a very simple script to change the site's background color from `fromColor` to `toColor` over a period of `maxDays`. The default starting date is 1 Jan 2023. This was inspired by the article: https://articles.uie.com/death_of_relaunch/
 
 ## Parameters
 `maxDays`: Integer value to determine how many days over the change should take place.
